@@ -1,0 +1,10 @@
+*Each prepended button needs the following format:
+	<li><button class="btn side-btn"> Lizards &raquo; </button></li>
+
+*Each appended gif needs the following format:
+	<div class="col-xs-6 col-sm-6 col-md-4 col-lg-3 placeholder">
+        <img src="https://media2.giphy.com/media/DPNGcDE3zqUne/200.gif" width="auto" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
+        <h4>Label</h4>
+        <span class="text-muted">Something else</span>
+    </div>
+

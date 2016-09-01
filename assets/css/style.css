@@ -1,0 +1,132 @@
+/* Apply dark navy blue background and gray text to body */
+body {
+	background-color: #2f4050;
+	color: #9d9d9d;
+}
+
+/* Main program title in top left of screen */
+a.navbar-brand {
+	font-weight: 200;
+	font-size: 20px;
+}
+
+/* Dark gray background for sidebar */
+div.sidebar {
+	background-color: #333;
+}
+
+/* Only add sidebar border on larger screens */
+@media (min-width: 768px) {
+	.sidebar {
+		border-right: 1px solid gray;
+	}
+}
+
+.nav>li>a.sidebar-heading {
+	padding-top: 0;
+	padding-bottom: 30px;
+	color: orange;
+}
+
+/* Remove white background on li hover event */
+.nav>li>a:hover {
+	background: none;
+}
+
+/* Increase space between image rows */
+div.placeholder {
+	margin-bottom: 30px;
+}
+
+/* Give the button generator input field label better styling */
+label {
+	color: #9d9d9d;
+	font-weight: 200;
+	font-size: 18px;
+}
+
+/* Put the buttons in the middle of the sidebar */
+li {
+	text-align: center;
+}
+
+/* Move input field left to make room away from edge of screen */
+input.input-generate {
+	margin-right: 5px;
+}
+
+/* Styling for all side buttons */
+button {
+	color: #fff;
+	background-color: #4aaaa5;
+	transition: .5s;
+}
+
+button:hover {
+	background-color: #2c6663;
+	color: #fff;
+}
+
+/* Add additional margin to bottom of button for better spacing, and attempt uniform width */
+button.side-btn {
+	margin-bottom: 20px;
+	width: 130px;
+}
+
+button.clear-btn {
+	transition: .5s;
+}
+
+button.clear-btn:hover {
+	background-color: maroon;
+}
+
+/* Override Bootstrap #333 text color on hover */
+.btn:hover {
+	color: #fff;
+}
+
+/* Make search icon light blue */
+.glyphicon-search {
+	color: #337ab7;
+}
+
+/* Align search icon inside of input field */
+span.search-icon {
+	margin-top: 8px;
+	padding-right: 135px;
+}
+
+/* Make sure that search icon has pointer on hover event */
+span.form-control-feedback {
+	pointer-events: visible;
+	cursor: pointer;
+}
+
+/* Give main page heading (will contain most recent search term) a ligher weight for aesthetics */
+h1 {
+	font-weight: 200;
+}
+
+h1.page-header {
+	border-bottom: .5px solid gray;
+}
+
+/* Style the most recent search term orange. Looks GREAT against dark navy blue background! */
+span.header-span {
+	color: orange;
+}
+
+/* Make each image almost circular, and give a shadow appearance */
+.placeholder img {
+	border-radius: 40%;
+	box-shadow: 5px 4px 8px #2a2e3d;
+}
+
+/* Make sure that all images take up the same row height, for consistency */
+.img-responsive {
+	height: 200px;
+	width: 100%;
+}
+
+
