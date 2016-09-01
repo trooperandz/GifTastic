@@ -70,7 +70,7 @@ button:hover {
 /* Add additional margin to bottom of button for better spacing, and attempt uniform width */
 button.side-btn {
 	margin-bottom: 20px;
-	width: 130px;
+	min-width: 145px;
 }
 
 button.clear-btn {

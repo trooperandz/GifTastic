@@ -1,19 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
 
+<html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="">
-    <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
-    <title> Dashboard Template from Bootstrap </title>
+    <title> Giphy Generator </title>
+
     <!-- Latest Bootstrap compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
     <!-- Dashboard styles for this template -->
     <link href="assets/css/dashboard.css" rel="stylesheet">
+
     <!-- Custom styles for project -->
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
@@ -31,11 +30,6 @@
                 <a class="navbar-brand" href="#">Giphy Generator</a>
             </div>
             <div id="navbar" class="navbar-collapse collapse">
-                <!--
-                <ul class="nav navbar-nav navbar-right">
-                    <li><button class="btn btn-primary">Clear Data</button></li>
-                </ul>
-                -->
                 <form class="navbar-form navbar-right">
                     <label> Create A Button! </label>
                     <input type="text" class="form-control input-generate" placeholder="Generate...">
@@ -50,6 +44,9 @@
             <div class="col-sm-3 col-md-2 sidebar">
                 <ul class="nav nav-sidebar">
                     <li><a href="#" class="sidebar-heading">Click A Button To Explore...</a></li>
+                    <!-- div for prepending new buttons -->
+                    <div id="button-area">
+                    <!--
                     <li><button class="btn side-btn"> Lizards &raquo; </button></li>
                     <li><button class="btn side-btn"> Kangaroos &raquo; </button></li>
                     <li><button class="btn side-btn"> Armadillos &raquo; </button></li>
@@ -57,23 +54,13 @@
                     <li><a href="#">Reports</a></li>
                     <li><a href="#">Analytics</a></li>
                     <li><a href="#">Export</a></li>
-                </ul>
-                <ul class="nav nav-sidebar">
-                    <li><a href="">Nav item</a></li>
-                    <li><a href="">Nav item again</a></li>
-                    <li><a href="">One more nav</a></li>
-                    <li><a href="">Another nav item</a></li>
-                    <li><a href="">More navigation</a></li>
-                </ul>
-                <ul class="nav nav-sidebar">
-                    <li><a href="">Nav item again</a></li>
-                    <li><a href="">One more nav</a></li>
-                    <li><a href="">Another nav item</a></li>
+                    -->
+                    </div>
                 </ul>
             </div>
             <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
                 <h1 class="page-header">Browsing...<span class="header-span">Lizards!</span></h1>
-                <div class="row placeholders">
+                <div class="row placeholders" id="gif-content">
                     <div class="col-xs-6 col-sm-6 col-md-4 col-lg-3 placeholder">
                         <img src="http://media0.giphy.com/media/5AVgmIw7iAzdK/200.gif" width="auto" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
                         <h4>Label</h4>
@@ -121,8 +108,12 @@
     </div>
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
     <!-- Latest compiled and minified Bootstrap JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <!-- Custom script for main program functionality -->
+    <script src="assets/javascript/gif.js"></script>
 </body>
 
 </html>
