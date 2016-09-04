@@ -32,13 +32,6 @@ div.sidebar {
 	background-color: #333;
 }
 
-/* Only add sidebar border on larger screens */
-@media (min-width: 768px) {
-	.sidebar {
-		border-right: 1px solid gray;
-	}
-}
-
 .nav>li>a.sidebar-heading {
 	padding-top: 0;
 	padding-bottom: 30px;
@@ -174,4 +167,49 @@ h5 {
 
 span.rating {
 	color: orange;
+}
+
+/* Media queries */
+@media (max-width: 765px) {
+	/* Make sure search icon is inside of input */
+	span.search-icon {
+		margin-top: 105px;
+	}
+
+	/* Make sure sidebar is visible */
+	div.sidebar {
+		display: inherit;
+	}
+
+	ul.nav-sidebar {
+		padding: 5px 5px;
+	}
+
+	/* Reduce space under heading */
+	.nav>li>a.sidebar-heading {
+		padding-bottom: 10px;
+	}
+
+	/* Scoot the buttons over to resemble horizonal-align */
+	div#button-area {
+		margin-left: 20px;
+	}
+
+	/* Put side buttons into a normal inline list on small screen */
+	div#button-area li {
+		display: inline;
+	}
+
+	/* Make buttons smaller and adjust padding on small screen to compensate for display: inline; ajdustment */
+	button.side-btn {
+		min-width: 145px;
+		margin: 5px 8px;
+	}
+}
+
+/* Only add sidebar border on larger screens */
+@media (min-width: 768px) {
+	.sidebar {
+		border-right: 1px solid gray;
+	}
 }
