@@ -17,7 +17,12 @@
  	// Hold new topics added in another array so that items may be removed in the future when user selects "Clear Data"
  	newTopicArray: [],
 
- 	// Function to populate default buttons on page load, from topicArray
+ 	/**
+ 	 * Populate default buttons on page load, from topicArray
+	 * @param {array} items The array of topics
+	 * @param {string} action "rerender" or null determines emptying of content
+	 * @return N/A
+	 */
  	generateDefaultButtons: function(items, action) {
  		// If user clicks "Clear Data" button, clear out the topic buttons list on side panel for re-rendering
  		if(action == "rerender") {
@@ -36,7 +41,11 @@
  		});
  	},
 
- 	// Function to generate a new button when the user clicks on the generate input
+ 	/** 
+ 	 * Generate a new button when the user clicks on the generate input
+ 	 * @param {string} topic The topic that the user entered
+ 	 * @return N/A
+ 	 */
  	generateNewButton: function(topic) {
  		// First check to see if topic already exists.  If so, deny addition
  		if(gif.topicArray.indexOf(topic) != -1) {
@@ -60,7 +69,11 @@
  		parent.prepend(li);
  	},
 
- 	// Function to generate gif content when the user clicks on a topic button
+ 	/** 
+ 	 * Generate gif content when the user clicks on a topic button
+ 	 * @param {string} topic The topic string represented by the button click
+ 	 * @return N/A
+ 	 */
  	generateGifs: function(topic) {
 
  		// Get the parent element which content will be prepended to
@@ -100,7 +113,11 @@
  		})
  	}, 
 
- 	// Function to change the img "src" attribute, to animated or still
+ 	/** 
+ 	 * Change the img "src" attribute, to animated or still the gif
+ 	 * @param {object} img The image that the user clicked
+ 	 * @return N/A
+ 	 */
  	changeImgUrl: function(img) {
  		// Get the url string, and then change the src attribute
  		var url = (gif.imgState == "still") ? img.data("animate") : img.data("still");
@@ -110,6 +127,11 @@
  		gif.imgState = (gif.imgState == "still") ? "animate" : "still";
  	},
 
+ 	/**
+ 	 * Clear the session storage (localStorage) data == array of topics
+ 	 * @param N/A
+ 	 * @return {boolean} true Return if localStorage != null
+ 	 */
  	clearStorage: function() {
  		// First, check to see if storage is empty
  		if(localStorage.getItem("topicArray") == null) {
@@ -124,7 +146,12 @@
  		}
  	},
 
- 	// Remove items in newTopicArray from original topicArray for restoring original topics list after "Clear Data" button is clicked by user
+ 	/**
+ 	 * Remove items in newTopicArray from original topicArray for restoring original 
+ 	 * topics list after "Clear Data" button is clicked by user.
+ 	 * @param N/A
+ 	 * @return N/A
+ 	 */
  	restoreTopicArray: function() {
  		// Run through each item in newTopicArray, removing matches found in topicArray (every item will match ALWAYS)
  		gif.newTopicArray.forEach(function(item, index, arr) {
