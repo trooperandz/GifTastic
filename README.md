@@ -26,7 +26,7 @@
 
  * The project layout is in a dashboard-style format, with the topic buttons on the left and the gif content on the right.
 
- * Users may add new topic buttons dynamically by using the top-right input area, "Create A Button" via "Enter" or "click" action. This action also generates gif content.
+ * Users may add new topic buttons dynamically by using the top-right input area, "Create A Button" via "Enter" or "click" action. This action also generates gif content.  Users are not allowed to enter a topic that already exists.
 
  * The program features local (session) storage for topic buttons.  Users may clear this data by selecting the "Clear Data" button.
 
