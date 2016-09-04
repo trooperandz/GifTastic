@@ -10,6 +10,23 @@ a.navbar-brand {
 	font-size: 20px;
 }
 
+/* Center-align the modal body text */
+div.modal-body {
+	text-align: center;
+}
+
+/* Move the modal down a bit further towards the center of the page */
+div.modal-dialog {
+	margin-top: 15%;
+}
+
+/* Make the modal body content area a bit larger, and text larger */
+p#modal-msg {
+	padding: 30px 0;
+	font-size: 30px;
+	color: maroon;
+}
+
 /* Dark gray background for sidebar */
 div.sidebar {
 	background-color: #333;
@@ -26,6 +43,7 @@ div.sidebar {
 	padding-top: 0;
 	padding-bottom: 30px;
 	color: orange;
+	font-weight: 200;
 }
 
 /* Remove white background on li hover event */
@@ -56,6 +74,10 @@ input.input-generate {
 }
 
 /* Styling for all side buttons */
+.btn {
+	border-radius: 3px;
+}
+
 button {
 	color: #fff;
 	background-color: #4aaaa5;
@@ -122,9 +144,10 @@ span.header-span {
 	color: orange;
 }
 
-h7 {
+h5 {
 	color: gray;
 	margin-bottom: 10px;
+	font-weight: 200;
 }
 
 /* Make each image almost circular, and give a shadow appearance */

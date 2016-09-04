@@ -49,7 +49,7 @@
  	generateNewButton: function(topic) {
  		// First check to see if topic already exists.  If so, deny addition
  		if(gif.topicArray.indexOf(topic) != -1) {
- 			alert("That topic already exists!  You can't add it again.");
+ 			this.showModal("That topic already exists! Please choose another one.");
  			return false;
  		}
 
@@ -135,10 +135,11 @@
  	clearStorage: function() {
  		// First, check to see if storage is empty
  		if(localStorage.getItem("topicArray") == null) {
- 			alert("There is no session data to clear out!");
+ 			this.showModal("There is no session data to clear!");
  		} else {
  			localStorage.clear("topicArray");
- 			console.log("localStorage was cleared!");
+ 			// Show modal msg to user confirming that data was cleared
+ 			this.showModal("You successfully cleared the session data!");
  			// Remove new items from original topic array
  			gif.restoreTopicArray();
  			// Return true so that generateDefaultButtons will only run after topicArray clearing has completed (else dupe error may trigger)
@@ -160,8 +161,17 @@
  				gif.topicArray.splice(index, 1);
  			}
  		});
- 		console.log("topicArray after splice: " + gif.topicArray);
- 	}
+ 	},
+
+ 	/**
+ 	 * Display modal to user if important msg is needed
+ 	 * @param {string} msg Message to transmit to user
+ 	 * @return N/A
+ 	 */
+ 	 showModal: function(msg) {
+ 	 	$('p#modal-msg').text(msg);
+ 	 	$('.modal').modal("show");
+ 	 }
  }
 
 // Main program executable code
@@ -171,26 +181,23 @@
  	// Note: var action dictates <ul> button list empty() instruction, to be executed only when clearing session data
  	var items = localStorage.getItem("topicArray");
  	if(items != null) {
- 		console.log("localStorage topicArray != null!");
  		items = JSON.parse(items);
  		var action = null;
  		gif.generateDefaultButtons(items, action);
  	} else {
- 		console.log("localStorage topicArray == null!");
  		var items = gif.topicArray;
  		var action = null;
  		gif.generateDefaultButtons(items, action);
  	}
 
- 	// When the user clicks on the search icon, generate a new button
+ 	// When the user clicks on the search icon, generate a new button AND generate gif content
  	$('span.search-icon').on('click', function(e) {
  		// Get the input text. Trim out any white space
  		var text = $('input.input-generate').val().trim();
- 		console.log("Input text: " + text);
 
- 		// Make sure the user entered something
+ 		// Make sure the user entered something. Show modal msg if they didn't
  		if(text == "") {
- 			alert("You must enter a topic before continuing!");
+ 			gif.showModal("You must enter a topic before continuing!");
  			return false;
  		}
 
@@ -199,16 +206,19 @@
 
  		// Save entire topicArray to local storage
  		localStorage.setItem("topicArray", JSON.stringify(gif.topicArray));
- 		console.log("localStorage topicArray: " + JSON.stringify(localStorage.getItem("topicArray")));
+
+ 		// Run the function to generate the GIFs
+ 		gif.generateGifs(text);
+
+ 		// Clear out the topic input element
+ 		$('.input-generate').html("");
  	});
 
  	// When the user clicks on a topic button, generate the gifs
  	$('ul.nav-sidebar').on('click', 'button', function(e) {
- 		console.log("Button was clicked!");
 
  		// Get the data attribute of the button clicked
  		var topic = $(this).data("topic");
- 		console.log("data-topic: " + topic);
 
  		// Fill in the h1 content with "Now Browsing..." and update topic content
  		$('h1.page-header').html('Now Browsing...<span class="header-span">' + topic + '</span>');
@@ -218,12 +228,9 @@
  	});
 
  	// When the user clicks on an img, make it animate, or still
- 	//$(document.body).on('click', 'div#gif-content img', function(e) {
  	$('div.main').on('click','img', function(e) {
- 		console.log("You clicked an img!");
  		var img = $(e.target);
  		gif.changeImgUrl(img);
- 		console.log("this: " + JSON.stringify(img));
  	});
 
  	// When user clicks on "Clear Data" button, clear the localStorage topic array if it exists
@@ -236,4 +243,11 @@
  			gif.generateDefaultButtons(gif.topicArray, action);
  		}
  	});
+
+ 	// Allow user to create new button via the "Enter" key
+ 	$(".input-generate").keypress(function(e) {
+        if (e.which == 13) {
+            $("span.search-icon").click();
+        }
+    });
 });
