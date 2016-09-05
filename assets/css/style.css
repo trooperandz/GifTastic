@@ -171,9 +171,9 @@ span.rating {
 
 /* Media queries */
 @media (max-width: 765px) {
-	/* Make sure search icon is inside of input */
+	/* Make sure search icon is hidden on small screen so as not to disrupt responsive dropdown menu */
 	span.search-icon {
-		margin-top: 105px;
+		display: none;
 	}
 
 	/* Make sure sidebar is visible */
